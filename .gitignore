@@ -1,0 +1,7 @@
+.*.sw[a-z]
+*.diff
+*.json
+*.tar.gz
+fixtures-output
+puppets/
+dist/
