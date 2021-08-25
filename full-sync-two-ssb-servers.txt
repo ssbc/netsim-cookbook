@@ -1,0 +1,23 @@
+comment booting
+
+enter peer
+hops peer 1
+load peer @TWKY4Bq5ezVqbXV2D7NyODxCXgu8o4rgp/sf1GdHbCw=.ed25519
+skipoffset peer
+
+enter server
+hops server 1
+load server @3eIPXptMcbrFPw8seKbywmPbRogERylNuoFVaZ9AlOg=.ed25519
+alloffsets server
+
+start server ssb-server
+start peer ssb-server
+
+timerstart run
+
+connect peer server
+waituntil peer peer@latest
+
+timerstop run
+
+stop peer
