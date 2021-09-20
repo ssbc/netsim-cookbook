@@ -10,7 +10,7 @@ fi
 echo "[ extracting the fixtures ]"
 tar -xvzf 100k_100auth_fixtures.tar.gz
 
-# check for care pacakge to avoid redownloading
+# check for care package to avoid redownloading
 CARE_PACKAGE=care-package.tar.gz
 if [ ! -f "$CARE_PACKAGE" ]; then
     echo "[ downloading the care package (sbot implementations) ]"

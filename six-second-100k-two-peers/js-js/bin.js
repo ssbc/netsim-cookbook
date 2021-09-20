@@ -151,10 +151,3 @@ if (argv[0] == 'start') {
     muxrpcli(argv, manifest, rpc, config.verbose)
   })
 }
-
-
-
-
-
-
-
