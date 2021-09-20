@@ -1,6 +1,6 @@
 # Six Second Replication
 
-This directory contains three sub-directories with identical netsim test configurations: one tests replications between two `go-sbot` peers; one tests replication with two `ssb-server` peers running `ssb-db`; one tests replication with two `ssb-server` peers running `ssb-db2`.
+This directory contains three sub-directories with identical netsim test configurations: one tests replication between two `go-sbot` peers; one tests replication with two `ssb-server` peers running `ssb-db`; one tests replication with two `ssb-server` peers running `ssb-db2`.
 
 All tests are run against the same fixtures consisting of 100,000 messages from 20 unique authors. Two identities are chosen: one is labelled as `server` and the other as `peer`. The `alloffsets server` netsim command is used to ensure the `server` starts with all 100000 messages. The `peer` is connected to the `server` and a timer is used to measure how many messages are replicated from `server` to `peer` in 6 seconds. A mutual follow is established before connecting the `peer` to the `server` (hence the 10249 message count for `peer` in the test output).
 
@@ -22,7 +22,7 @@ _Note: You may need to make `install.sh` executable by first running `chmod +x i
 
 **Run the simulations**
 
-This script executes the go-go, js-js and js-js (db2) simulations. Output is printed to the terminal. Consider piping the output to a file.
+This script executes the go-go, js-js and js-js (db2) simulations. Output is printed to the terminal.
 
 _Note: You may need to make `simulate.sh` executable by first running `chmod +x simulate.sh`._
 
