@@ -1,0 +1,28 @@
+comment [ go-go: six second replication with 100k msgs from 100 authors ]
+
+comment [ configuring peer ]
+enter peer
+hops peer 3
+load peer @sWJqvI4hdv96aRMk1pQOJo1frXRFr7oBB5/r/jBMcxw=.ed25519
+
+comment [ configuring server ]
+enter server
+hops server 3
+load server @NZpjhmgTaHOHFZI6G6dIuWwa3UqwSpfRpMbY5ue6vAI=.ed25519
+alloffsets server
+
+comment [ starting go-sbot instances ]
+start server go-sbot
+start peer go-sbot
+
+comment [ creating mutual follow ]
+follow server peer
+follow peer server
+
+wait 10000
+
+comment [ connecting peer to server ]
+timerstart run
+connect peer server
+wait 6000
+timerstop run
