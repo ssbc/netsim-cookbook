@@ -1,3 +1,4 @@
+# ignore
 .*.sw[a-z]
 *.diff
 *.json
@@ -5,3 +6,7 @@
 fixtures-output
 puppets/
 dist/
+
+# allow
+!six-second-100k-two-peers/js-js/package.json
+!six-second-100k-two-peers/js-js-db2/package.json
