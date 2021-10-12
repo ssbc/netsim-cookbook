@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2021 The Secure Scuttlebutt Consortium authors
+//
+// SPDX-License-Identifier: MIT
+
 #! /usr/bin/env node
 
 // db2

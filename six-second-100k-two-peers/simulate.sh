@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2021 Andrew 'glyph' Reid
+#
+# SPDX-License-Identifier: Unlicense
+
 #!/bin/bash
 
 # execute `./install.sh` to configure everything before running simulations

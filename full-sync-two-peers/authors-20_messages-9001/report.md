@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2021 Andre 'Staltz' Medeiros
+
+SPDX-License-Identifier: Unlicense
+-->
+
 # Stats for this fixture
 
 The main feed is @TWKY4Bq5ezVqbXV2D7NyODxCXgu8o4rgp/sf1GdHbCw=.ed25519 (hop 0).

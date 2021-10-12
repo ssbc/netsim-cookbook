@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2021 Andrew 'glyph' Reid
+
+SPDX-License-Identifier: CC0-1.0
+-->
+
 # Six Second Replication
 
 This directory contains three sub-directories with identical netsim test configurations: one tests replication between two `go-sbot` peers; one tests replication with two `ssb-server` peers running `ssb-db`; one tests replication with two `ssb-server` peers running `ssb-db2`.

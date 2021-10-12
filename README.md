@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2021 Alexander 'cblgh' Cobleigh
+
+SPDX-License-Identifier: CC0-1.0
+-->
+
 # netsim cookbook
 A place to collect various [netsim](https://github.com/ssb-ngi-pointer/netsim) test scripts.
 

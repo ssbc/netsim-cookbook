@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2021 Andrew 'glyph' Reid
+#
+# SPDX-License-Identifier: Unlicense
+
 # ignore
 .*.sw[a-z]
 *.diff

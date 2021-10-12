@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2021 Alexander 'cblgh' Cobleigh
+#
+# SPDX-License-Identifier: Unlicense
+
 #!/usr/bin/env bash
 SCRIPTPATH="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
 DIR="$1"

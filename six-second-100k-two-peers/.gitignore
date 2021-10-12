@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2021 Andrew 'glyph' Reid
+#
+# SPDX-License-Identifier: Unlicense
+
 go-sbot/
 netsim
 sim-shims/
