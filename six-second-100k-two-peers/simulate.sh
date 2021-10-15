@@ -2,7 +2,7 @@
 #
 # SPDX-License-Identifier: Unlicense
 
-#!/bin/bash
+#!/usr/bin/env bash
 
 # execute `./install.sh` to configure everything before running simulations
 
@@ -17,6 +17,14 @@ echo "[ running ssb-server simulation ]"
 echo "---------------------------------------"
 echo "[ running ssb-server (db2) simulation ]"
 ./netsim run --spec js-js-db2/netsim-test-6s-100k-js-db2.txt --fixtures fixtures-output ssb-server-db2
+
+echo "------------------------------"
+echo "[ running server:go-sbot peer:js-db2 simulation ]"
+./netsim run --spec go-jsdb2/spec.txt --fixtures fixtures-output go-sbot ssb-server-db2
+
+echo "------------------------------"
+echo "[ running peer:go-sbot server:js-db2 simulation ]"
+./netsim run --spec jsdb2-go/spec.txt --fixtures fixtures-output go-sbot ssb-server-db2
 
 echo "----------------------------"
 echo "[ simulation runs complete ]"

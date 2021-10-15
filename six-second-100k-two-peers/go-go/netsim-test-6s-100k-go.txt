@@ -25,4 +25,6 @@ comment [ connecting peer to server ]
 timerstart run
 connect peer server
 wait 6000
+disconnect peer server
+disconnect server peer
 timerstop run

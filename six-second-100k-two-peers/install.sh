@@ -2,7 +2,7 @@
 #
 # SPDX-License-Identifier: Unlicense
 
-#!/bin/bash
+#!/usr/bin/env bash
 
 # check for fixtures to avoid redownloading
 FIXTURES=100k_100auth_fixtures.tar.gz
