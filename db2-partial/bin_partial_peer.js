@@ -1,0 +1,89 @@
+#! /usr/bin/env node
+
+// db2 - partial
+var SecretStack = require("secret-stack");
+var caps = require("ssb-caps");
+var Config = require("ssb-config/inject");
+var minimist = require("minimist");
+
+var argv = process.argv.slice(2);
+var i = argv.indexOf("--");
+var conf = argv.slice(i + 1);
+argv = ~i ? argv.slice(0, i) : argv;
+
+var config = Config(process.env.ssb_appname, minimist(conf));
+config.db2 = { automigrate: true, dangerouslyKillFlumeWhenMigrated: true, _ssbFixtures: true };
+
+config.ebt = { logging: false }
+
+config.replicationScheduler = {
+  debouncePeriod: 500,
+  partialReplication: {
+    0: {
+      subfeeds: [
+        { feedpurpose: "main" },
+        {
+          feedpurpose: "indexes",
+          subfeeds: [
+            {
+              feedpurpose: "index",
+              $format: "indexed",
+            },
+          ],
+        },
+      ],
+    },
+    1: {
+      subfeeds: [
+        {
+          feedpurpose: "indexes",
+          subfeeds: [
+            {
+              feedpurpose: "index",
+              metadata: {
+                querylang: "ssb-ql-0",
+                query: { author: "$main", type: "about", private: false },
+              },
+              $format: "indexed",
+            },
+            {
+              feedpurpose: "index",
+              metadata: {
+                querylang: "ssb-ql-0",
+                query: { author: "$main", type: "contact", private: false },
+              },
+              $format: "indexed",
+            },
+          ],
+        },
+      ],
+    },
+  },
+};
+
+//console.log(config);
+
+if (argv[0] == "start") {
+  var createSsbServer = SecretStack({ caps })
+    .use(require("ssb-master"))
+    .use(require("ssb-db2"))
+    .use(require("ssb-db2/compat"))
+    .use(require("ssb-lan"))
+    .use(require("ssb-friends"))
+    .use(require("ssb-ebt"))
+    .use(require("ssb-conn"))
+    .use(require("ssb-meta-feeds"))
+    .use(require("ssb-subset-rpc"))
+    .use(require("ssb-replication-scheduler"));
+
+  // start server
+  var server = createSsbServer(config);
+  // gracefully exit process
+  process.once("SIGINT", function (code) {
+    console.log("sig int received");
+    server.close(true, () => {
+      console.log("exiting");
+      process.exit();
+    });
+  });
+}
