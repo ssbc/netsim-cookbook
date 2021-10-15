@@ -1,4 +1,4 @@
-comment [ js-js (db2): six second replication with 100k msgs from 100 authors ]
+comment [ js-db2 > go: six second replication with 100k msgs from 100 authors ]
 
 comment [ configuring peer ]
 enter peer
@@ -13,7 +13,7 @@ alloffsets server
 
 comment [ starting ssb-server instances ]
 start server ssb-server-db2
-start peer ssb-server-db2
+start peer go-sbot
 
 comment [ creating mutual follow ]
 follow server peer
